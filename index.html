@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>Pac-Man</title>
+</head>
+<body>
+    <main>
+        <h1><strong> Pac-Man </strong></h1>
+        <div id="game-intro">
+            <img src="./images/pacman-logo2.png" alt="" class="logo-img" />
+            <br/>
+            <button id="start-button">Start Game</button>
+            <p>Use the Arrows button to control the nerd!</p>
+            <img src="./images/arrows.png" alt="" class="arrow-img" />
+        </div> 
+
+        <div id="game-container">
+            <div>
+                <h2>Stats</h2>
+                <p>Score: <span id="score">0</span></p>
+                <p>Lives: <span id="lives">3</span></p>
+            </div>
+            <div id="game-screen"></div>
+        </div>
+
+        <div id="game-end">
+            <img src="./images/pacman-logo2.png" alt="" class="logo-img" />
+            <h1>Game Over</h1>
+            <br />
+            <button id="restart-button">Restart</button>
+        </div>
+    </main>
+</body>
+</html>
