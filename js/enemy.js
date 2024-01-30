@@ -10,7 +10,7 @@ class Obstacle {
         this.width = 50 ;
         this.height = 50 ;
 
-        // Create the HTML elements and create default styling
+        // Create the CSS elements 
         this.element = document.createElement("img") ;
         this.element.src = "./images/css-logo.png" ;
         this.element.style.position = "absolute" ;
@@ -79,14 +79,14 @@ class Obstacle {
     moveCharacterRandomly() {
 
         // Generate random movements in X and Y directions
-        var deltaX = getRandomNumber(-20, 20);
-        var deltaY = getRandomNumber(-20, 20);
+        const deltaX = getRandomNumber(-20, 20);
+        const deltaY = getRandomNumber(-20, 20);
   
         // Alert the new position (simulating movement)
         alert('Character moved to X: ' + deltaX + ', Y: ' + deltaY);
     
   
-        // Set up a timer to move the character every 1 seconds (1000 milliseconds)
+        // Set up a timer to move the character every 1 seconds 
         setInterval(moveCharacterRandomly, 1000);
   
         // Initial call to moveCharacterRandomly to start the movement

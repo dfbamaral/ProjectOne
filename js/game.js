@@ -25,6 +25,14 @@ class Game {
         this.isPushingObstacle = false ;
 
         this.gameIsOver = false ;
+
+        this.powerUp = null;
+
+        this.isStarted = false;
+
+        this.timerInterval = null ;
+
+        this.timeLeft = 30 ;
     }
 
     start(){
@@ -40,6 +48,10 @@ class Game {
         // Shows the game screen.|||||||||||||||||||||||||||||||||
 
         this.gameScreen.style.display = "block" ;
+
+        this.timerInterval = setInterval(() => {
+            this.timeLeft--
+        }, 1000) ;
 
         // Starts the game loop 
 
@@ -63,6 +75,21 @@ class Game {
 
         /* Every Frame of the game, i want to check if the car is moving */
         this.player.move() ;
+
+        if(!this.isStarted){
+        setInterval(()=>{
+            if(this.isStarted && this.powerUp){
+                this.powerUp.element.remove();
+                this.powerUp = null;
+            }
+            this.powerUp = new PowerUp(this.gameScreen)  
+        }, 3000)
+        }
+        if(this.powerUp && this.powerUp.didCollide(this.player)){
+            this.score +=10;
+            this.powerUp.element.remove();
+            this.powerUp = null;
+         }
 
         // Iterate over the obstacles array and make them move
         for(let i = 0 ; i < this.obstacles.length ; i++) {
@@ -104,6 +131,19 @@ class Game {
 
         score.innerHTML = this.score ;
         lives.innerHTML = this.lives ; 
+
+        this.isStarted = true;
+
+        // Time 
+        if(this.timeLeft <= 0) {
+            this.endGame()
+        }
+    }
+
+    startTimer() {
+        this.timeId = setInterval(() => {
+            this.update();
+        }, 30000);
     }
 
     endGame() {
