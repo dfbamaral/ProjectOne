@@ -1,7 +1,8 @@
 class Obstacle {
-    constructor(gameScreen) {
+    constructor(gameScreen , player) {
         this.gameScreen = gameScreen ;
-       
+        this.player = player ;
+
         // Random Position
         this.left = Math.floor(Math.random() * 300 + 70) ;
         
@@ -23,34 +24,46 @@ class Obstacle {
     }
 
     move() {
-        // Move obstacles down 
-        this.top += 3 ;
-        this.left += 3 ;
-        this.height += 5 ;
-        this.width += 5 ;
 
-        // Handle The Right Side of the screen: Enemy stops in the right border
-        if (this.left + this.width > this.gameScreen.offsetWidth) {
-            this.left = this.gameScreen.offsetWidth - this.width ;
+        // Calcula a direção para seguir o jogador
+        // Calculates the direction to follow the player
+        let directionX, directionY;
+        if (this.player.left > this.left) {
+            directionX = 1;
+        } else {
+            directionX = -1;
+        }
+        if (this.player.top > this.top) {
+            directionY = 1;
+        } else {
+            directionY = -1;
         }
 
-        // Handle The Left Side of the Screen: Enemy stops in the left border
-        else if(this.left <= 0) {
-            this.left = 0 ;
-        }
-        
-        // Handle The Bottom Side of the Screen: Enemy stop in the bottom 
-        if (this.top + this.height > this.gameScreen.offsetHeight) {
-            this.top = this.gameScreen.offsetHeight - this.height ;
-        }
+         // Atualiza a posição do obstáculo para seguir o jogador
+         // This is to update the position of the enemy and to trace the player
+         this.left += directionX * 3;
+         this.top += directionY * 3;
+         
+         // Mantém o obstáculo dentro dos limites da tela
+         // This is limiting the enemy to follow player in the screen
+         if (this.left < 0) {
+             this.left = 0;
+         } 
+         
+         else if (this.left + this.width > this.gameScreen.offsetWidth) {
+             this.left = this.gameScreen.offsetWidth - this.width;
+         }
 
-        // Handle The Top Side of the Screen: Enemy stop in the top
-        else if (this.top <= 0) {
-            this.top = 0 ;
-        }
-
-        this.updatePosition() ;
-    }
+         if (this.top < 0) {
+             this.top = 0;
+         } 
+         else if (this.top + this.height > this.gameScreen.offsetHeight) {
+             this.top = this.gameScreen.offsetHeight - this.height;
+         }
+         // Atualiza a posição do obstáculo no DOM
+         // Update the position of Dom
+         this.updatePosition();
+    } 
 
     updatePosition() {
         this.element.style.left = `${this.left}px` ;
@@ -62,20 +75,21 @@ class Obstacle {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
   
-  // Function to move the character randomly
+    // Function to move the character randomly
     moveCharacterRandomly() {
-    // Generate random movements in X and Y directions
-        var deltaX = getRandomNumber(-10, 10);
-        var deltaY = getRandomNumber(-10, 10);
+
+        // Generate random movements in X and Y directions
+        var deltaX = getRandomNumber(-20, 20);
+        var deltaY = getRandomNumber(-20, 20);
   
         // Alert the new position (simulating movement)
         alert('Character moved to X: ' + deltaX + ', Y: ' + deltaY);
     
   
-     // Set up a timer to move the character every 2 seconds (2000 milliseconds)
-        setInterval(moveCharacterRandomly, 2000);
+        // Set up a timer to move the character every 1 seconds (1000 milliseconds)
+        setInterval(moveCharacterRandomly, 1000);
   
-    // Initial call to moveCharacterRandomly to start the movement
+        // Initial call to moveCharacterRandomly to start the movement
         moveCharacterRandomly();
     }
   

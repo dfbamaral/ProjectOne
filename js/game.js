@@ -67,7 +67,7 @@ class Game {
         // Iterate over the obstacles array and make them move
         for(let i = 0 ; i < this.obstacles.length ; i++) {
             const obstacle = this.obstacles[i] ;
-            obstacle.move() ;
+            obstacle.move(this.player) ;
 
             if(this.player.didCollode(obstacle)){
                 obstacle.element.remove() ;
@@ -96,7 +96,7 @@ class Game {
         else if(!this.obstacles.length && !this.isPushingObstacle) {
             this.isPushingObstacle = true ;
             setTimeout(() =>{
-                this.obstacles.push(new Obstacle(this.gameScreen)) ;
+                this.obstacles.push(new Obstacle(this.gameScreen , this.player)) ;
                 this.isPushingObstacle = false ;  
 
             } , 1500) ;

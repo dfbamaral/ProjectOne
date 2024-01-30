@@ -13,6 +13,7 @@ body {
     width: 100vw ;
     padding: 20px 0px ;
     justify-content: center ;
+    color: white;
 }
 
 #game-screen {

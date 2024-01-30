@@ -34,15 +34,15 @@ window.onload = function () {
         if(game) {
           switch(key) {
             case "ArrowLeft" :
-              game.player.directionX = -10 ;
+              game.player.directionX = -8 ;
               break ;
             case "ArrowUp" :
-              game.player.directionY = -10 ;
+              game.player.directionY = -8 ;
               break ;
             case "ArrowRight" :
-              game.player.directionX = 10 ;
+              game.player.directionX = 8 ;
             case "ArrowDown" :
-              game.player.directionY = 10 ;
+              game.player.directionY = 8 ;
           }
         }
       }
@@ -71,8 +71,10 @@ window.onload = function () {
               break ;
             case "ArrowRight" :
               game.player.directionX = 0 ;
+              break ;
             case "ArrowDown" :
               game.player.directionY = 0 ;
+              break ; 
           }
         }
       }
