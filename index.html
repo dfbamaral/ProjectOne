@@ -10,8 +10,11 @@
     <main>
         <h1><strong> Pac-Man </strong></h1>
         <div id="game-intro">
-            <img src="./images/pacman-logo2.png" alt="" class="logo-img" />
-            <br/>
+            <img src="./images/pacdev.png" alt="" class="logo-img" />
+            <br>
+            <br>
+            <br>
+            <!--<button id="start-button">Start Game</button>-->
             <button id="start-button">Start Game</button>
             <p><strong>Use the Arrows button to control the nerd!</strong></p>
             <!--<img src="./images/arrows2.png" alt="" class="arrow-img" />--> 
@@ -21,17 +24,26 @@
             <div>
                 <h2>Stats</h2>
                 <p>Score: <span id="score">0</span></p>
-                <p>Lives: <span id="lives">3</span></p>
+                <p>Lives: <span id="lives">5</span></p>
             </div>
             <div id="game-screen"></div>
+            <audio id="soundtrack" src="./sound/rydeen.mp3"></audio>
+        
         </div>
+
+        
  
         <div id="game-end">
-            <img src="./images/pacman-logo2.png" alt="" class="logo-img" />
+            <video id="videos" src=""></video>
+            <audio id="laugh" src="./sound/evil-laugh.mp3"></audio>
             <h1>Game Over</h1>
             <br />
+            <!--<button id="restart-button">Restart</button>-->
             <button id="restart-button">Restart</button>
         </div>
+
+        
+
     </main>
 
     <script type="text/javascript" src="js/powerup.js"></script>
@@ -42,6 +54,8 @@
     <script type="text/javascript" src="js/player.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/enemy.js"></script>
+    <script type="text/javascript" src="js/enemy2.js"></script>
+    <script type="text/javascript" src="js/enemy3.js"></script>
     
 </body>
 </html>

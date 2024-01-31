@@ -9,7 +9,7 @@ class PowerUp4 {
         this.width = 30 ;
         this.height = 30 ;
 
-        this.score = 20 ; // This is the number of point you get when eat powerup4
+        this.score = 5 ; // This is the number of point you get when eat powerup4
 
         
         this.element = document.createElement("img");

@@ -6,10 +6,10 @@ class PowerUp {
         this.left = Math.floor(Math.random() * (this.gameScreen.offsetWidth - 50)) ;
         this.top = Math.floor(Math.random() * (this.gameScreen.offsetHeight - 50)) ;
 
-        this.width = 30 ;
-        this.height = 30 ;
+        this.width = 80 ;
+        this.height = 80 ;
 
-        this.score = 10 ; // This is the number of point you get when eat powerup
+        this.score = 30 ; // This is the number of point you get when eat powerup
 
         
         this.element = document.createElement("img");

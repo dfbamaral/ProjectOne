@@ -41,8 +41,8 @@ class Obstacle {
 
          // Atualiza a posição do obstáculo para seguir o jogador
          // This is to update the position of the enemy and to trace the player
-         this.left += directionX * 3;
-         this.top += directionY * 3;
+         this.left += directionX * 2.5;
+         this.top += directionY * 2.5;
          
          // Mantém o obstáculo dentro dos limites da tela
          // This is limiting the enemy to follow player in the screen
