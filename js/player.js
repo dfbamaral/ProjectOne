@@ -70,7 +70,5 @@ class Player {
             && playerRect.bottom > obstacleRect.top) {return true}
             else {return false};
 
-    }
-
-    
+    }    
 } ;

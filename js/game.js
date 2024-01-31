@@ -26,13 +26,16 @@ class Game {
 
         this.gameIsOver = false ;
 
-        this.powerUp = null;
+        this.powerUp = null ;
+        this.powerUp2 = null ;
+        this.powerUp3 = null ;
+        this.powerUp4 = null ;
 
         this.isStarted = false;
 
         this.timerInterval = null ;
 
-        this.timeLeft = 30 ;
+        this.timeLeft = 60 ;
     }
 
     start(){
@@ -75,21 +78,66 @@ class Game {
 
         /* Every Frame of the game, i want to check if the car is moving */
         this.player.move() ;
-
+        
+        // POWERUPS //
         if(!this.isStarted){
-        setInterval(()=>{
-            if(this.isStarted && this.powerUp){
-                this.powerUp.element.remove();
-                this.powerUp = null;
-            }
-            this.powerUp = new PowerUp(this.gameScreen)  
-        }, 3000)
+            setInterval(()=>{
+                if(this.isStarted && this.powerUp){
+                    this.powerUp.element.remove();
+                    this.powerUp = null;
+                }
+                this.powerUp = new PowerUp(this.gameScreen)  
+            } , 3000)
+
+            setInterval(() => {
+                if(this.isStarted && this.powerUp2){
+                    this.powerUp2.element.remove();
+                    this.powerUp2 = null;
+                }
+                this.powerUp2 = new PowerUp2(this.gameScreen)
+            } , 6000)
+
+            setInterval(() => {
+                if(this.isStarted && this.powerUp3){
+                    this.powerUp3.element.remove();
+                    this.powerUp3 = null;
+                }
+                this.powerUp3 = new PowerUp3(this.gameScreen)
+            } , 7000)
+
+            setInterval(() => {
+                if(this.isStarted && this.powerUp4){
+                    this.powerUp4.element.remove();
+                    this.powerUp4 = null;
+                }
+                this.powerUp4 = new PowerUp4(this.gameScreen)
+            } , 5000)
+
         }
+
         if(this.powerUp && this.powerUp.didCollide(this.player)){
             this.score +=10;
             this.powerUp.element.remove();
             this.powerUp = null;
-         }
+        }
+
+        if(this.powerUp2 && this.powerUp2.didCollide(this.player)){
+            this.score +=15;
+            this.powerUp2.element.remove();
+            this.powerUp2 = null;
+        }
+
+        if(this.powerUp3 && this.powerUp3.didCollide(this.player)){
+            this.score += 30 ;
+            this.powerUp3.element.remove();
+            this.powerUp3 = null;
+        }
+
+        if(this.powerUp4 && this.powerUp4.didCollide(this.player)){
+            this.score += 20 ;
+            this.powerUp4.element.remove();
+            this.powerUp4 = null;
+        }
 
         // Iterate over the obstacles array and make them move
         for(let i = 0 ; i < this.obstacles.length ; i++) {
