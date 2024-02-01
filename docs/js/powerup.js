@@ -1,19 +1,19 @@
-class PowerUp4 {
+class PowerUp {
     constructor(gameScreen) {
         this.gameScreen = gameScreen ;
 
-        // Random position of powerup4s
+        // Random position of powerups
         this.left = Math.floor(Math.random() * (this.gameScreen.offsetWidth - 50)) ;
         this.top = Math.floor(Math.random() * (this.gameScreen.offsetHeight - 50)) ;
 
-        this.width = 30 ;
-        this.height = 30 ;
+        this.width = 80 ;
+        this.height = 80 ;
 
-        this.score = 5 ; // This is the number of point you get when eat powerup4
+        this.score = 30 ; // This is the number of point you get when eat powerup
 
         
         this.element = document.createElement("img");
-        this.element.src = "./images/nata.png" ;
+        this.element.src = "./docs/images/curry.png" ;
         this.element.style.position = "absolute";
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`;
@@ -25,13 +25,13 @@ class PowerUp4 {
     }
 
     didCollide(player) {
-        const powerup4Rect = this.element.getBoundingClientRect() ;
+        const powerUpRect = this.element.getBoundingClientRect() ;
         const playerRect = player.element.getBoundingClientRect() ;
 
-        if(powerup4Rect.left < playerRect.right 
-            && powerup4Rect.right > playerRect.left
-            && powerup4Rect.top < playerRect.bottom
-            && powerup4Rect.bottom > playerRect.top) {return true}
+        if(powerUpRect.left < playerRect.right 
+            && powerUpRect.right > playerRect.left
+            && powerUpRect.top < playerRect.bottom
+            && powerUpRect.bottom > playerRect.top) {return true}
             else {return false};
 
     }

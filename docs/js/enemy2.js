@@ -1,4 +1,4 @@
-class Obstacle3 {
+class Obstacle2 {
     constructor(gameScreen , player) {
         this.gameScreen = gameScreen ;
         this.player = player ;
@@ -7,12 +7,12 @@ class Obstacle3 {
         this.left = Math.floor(Math.random() * 300 + 70) ;
         
         this.top = 0 ;
-        this.width = 90 ;
-        this.height = 90 ;
+        this.width = 50 ;
+        this.height = 50 ;
 
         // Create the CSS elements 
         this.element = document.createElement("img") ;
-        this.element.src = "./images/jasmine.png" ;
+        this.element.src = "./docs/images/html-logo.png" ;
         this.element.style.position = "absolute" ;
         this.element.style.width = `${this.width}px` ;
         this.element.style.height = `${this.height}px` ;
@@ -41,8 +41,8 @@ class Obstacle3 {
 
          // Atualiza a posição do obstáculo para seguir o jogador
          // This is to update the position of the enemy and to trace the player
-         this.left += directionX * 3.5;
-         this.top += directionY * 3.5;
+         this.left += directionX * 3;
+         this.top += directionY * 3;
          
          // Mantém o obstáculo dentro dos limites da tela
          // This is limiting the enemy to follow player in the screen

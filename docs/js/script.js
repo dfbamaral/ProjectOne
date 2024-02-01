@@ -10,6 +10,7 @@ window.onload = function () {
   
     restartButton.addEventListener("click" , function () {
       // JS, in the current tab, is going to refresh (reload) the page.
+      
       location.reload() ;
     }) ;
   

@@ -12,7 +12,7 @@ class Obstacle {
 
         // Create the CSS elements 
         this.element = document.createElement("img") ;
-        this.element.src = "./images/css-logo.png" ;
+        this.element.src = "./docs/images/css-logo.png" ;
         this.element.style.position = "absolute" ;
         this.element.style.width = `${this.width}px` ;
         this.element.style.height = `${this.height}px` ;
